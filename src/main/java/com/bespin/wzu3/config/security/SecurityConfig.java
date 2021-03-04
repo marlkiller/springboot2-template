@@ -74,7 +74,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
+        // close security
+        // http.csrf().disable()
+        //         .authorizeRequests()
+        //         .anyRequest().permitAll()
+        //         .and().logout().permitAll();
 
+
+        // open security
         http.exceptionHandling().accessDeniedHandler(accessDeniedHandler).and().csrf().disable()
                 .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
                 //因为使用JWT，所以不需要HttpSession
